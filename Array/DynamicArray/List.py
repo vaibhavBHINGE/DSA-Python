@@ -72,7 +72,10 @@ class MyList:
         self.A[index]=value
         self.n=self.n+1
     #delete using its index
-
+    def __delitem__(self, index):
+         for i in range(index,self.n-1):
+            self.A[i]=self.A[i+1]
+        self.n=self.n-1
 
 
 
