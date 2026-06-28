@@ -73,13 +73,27 @@ class MyList:
         self.n=self.n+1
     #delete using its index
     def __delitem__(self, index):
-         for i in range(index,self.n-1):
+        if index<0 or index>self.n:
+            return "invalid input"
+        for i in range(index,self.n-1):
             self.A[i]=self.A[i+1]
         self.n=self.n-1
+    #remove by value
+    def remove(self,value):
+        # search and get pos
+        pos = self.find(value)
+        if type(pos) == int:
+            # delete
+            self.__delitem__(pos)
+        else:
+            return pos
+    #min,max,sum,sort, extent, negative indexing, slicing, merge // to be done!
+
 
 
 
 L = MyList()
+list=[1,1,2,3,4,5,7,"vaibhav"]
 
 print("type of list: ", type(L))
 L.Append(12)
@@ -98,4 +112,7 @@ print("getting index number via value: ", L.find("Bhinge"))
 print("inserting new item: ",L.insert(2,"ganesh"))
 print("inserting new item: ",L.insert(2,"Amol"))
 print("printing list: ", L)
-print(del L[3])
+del L[4] # delete 2nd index
+print("printing list: ", L)
+print("removing: ",L.remove("ganesh"))
+print("List: ",L )
