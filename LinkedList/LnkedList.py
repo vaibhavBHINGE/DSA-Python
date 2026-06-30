@@ -24,6 +24,22 @@ class LinkedList:
         #increment
         self.n=self.n+1
 
+    def traverse(self): # we want to iterate all the nodes for the list. extracting all the nodes form the list
+        char=self.head
+        while char is not None:
+            print(char.data)
+            char=char.next
+
+    def __str__(self):
+        char = self.head
+        result=""
+        while char is not None:
+            result+=str(char.data)+'->'
+            char = char.next
+        return result[:-2]
+
+
+
 L=LinkedList()
 L.insert_head(12)
 L.insert_head(13)
@@ -32,5 +48,6 @@ L.insert_head(15)
 L.insert_head(16)
 L.insert_head("vaibhav")
 # print("LinkedList: ",L)
-
 print("Length of linkedList: ",len(L))
+L.traverse()
+print("Printing linkedlist: ", L)
